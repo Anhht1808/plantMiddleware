@@ -10,7 +10,6 @@
     <!-- PlantTAGG Widget Integration for BigCommerce -->
 <div id="planttagg-widget-container">
     <!-- Fallback message for unsupported environments -->
-    Your widget is loading...
   </div>
   
   <!-- Embed PlantTAGG Widget -->
@@ -45,6 +44,12 @@
   <noscript>
     JavaScript is required to load the PlantTAGG widget. Please enable JavaScript and reload the page.
   </noscript>
-  
+  <script>
+    // Gửi dữ liệu từ iframe sang trang chính
+    const dataToSend = {
+        content: document.body.innerHTML // Lấy nội dung của body trong iframe
+    };
+    window.parent.postMessage(dataToSend, '*'); // Gửi dữ liệu tới trang chính
+</script>
 </body>
 </html>
